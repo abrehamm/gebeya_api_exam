@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const itemRouter = require("./routes/item");
+const cartRouter = require("./routes/cart");
 const bp = require("body-parser");
 
 const app = express();
@@ -17,6 +18,7 @@ mongoose
   });
 
 app.use("/items", itemRouter);
+app.use("/cart", cartRouter);
 
 // Error message for all unsupported routes
 app.use((req, res, next) => {
