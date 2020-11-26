@@ -1,0 +1,15 @@
+{
+  "name": "gebeya_api_exam",
+  "version": "1.0.0",
+  "description": "Simple API consisting of endpoints to items, listings & carts based on an E-commerce setup. Strictly for demo purposes.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Abreham M.",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.16"
+  }
+}
