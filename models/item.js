@@ -4,7 +4,7 @@ const itemSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
     price: Number,
-    discription: String,
+    description: String,
     photo: String
 });
 
