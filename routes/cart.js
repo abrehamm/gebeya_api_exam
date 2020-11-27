@@ -1,11 +1,35 @@
+/**
+ * @swagger
+ *      components:
+ *          schemas:
+ *              Cart:
+ *                  type: object
+ *                  properties:
+ *                      _id:
+ *                          type: String
+ *                          description: Object ID
+ *                      items:
+ *                          type: Array
+ */
+
+/**
+ * @swagger
+ *  cart/:
+ *      post:
+ *          summary: Creates a cart
+ *
+ *
+ */
+
 const express = require("express");
 const mongoose = require("mongoose");
 
 const Cart = require("../models/cart");
+const auth = require("../auth");
 
 const router = express.Router();
 
-router.post("/", (req, res, next) => {
+router.post("/", auth, (req, res, next) => {
   const items = req.body;
   console.log(items);
 
@@ -27,7 +51,7 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.patch("/:cartID", (req, res, next) => {
+router.patch("/:cartID", auth, (req, res, next) => {
   const id = req.params.cartID;
   const itemID = req.body.item;
   Cart.findById(id)
@@ -49,7 +73,7 @@ router.patch("/:cartID", (req, res, next) => {
     });
 });
 
-router.get("/:cartID", (req, res, next) => {
+router.get("/:cartID", auth, (req, res, next) => {
   id = req.params.cartID;
   Cart.findById(id)
     .then((doc) => {
